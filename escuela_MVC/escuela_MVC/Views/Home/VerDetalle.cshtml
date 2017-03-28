@@ -1,0 +1,22 @@
+﻿
+@{
+    List<escuela_MVC.Models.Alumno> GetDatos = ViewBag.GetDatos;
+    ViewBag.Title = "VerDetalle";
+    int id = ViewBag.id;
+}
+
+<div class="container">
+
+    @foreach (escuela_MVC.Models.Alumno item in GetDatos)
+    {
+        <div>
+            <img src="@item.sImage" width="200px" height="250xp" /><br />
+     
+            Matricula: @item.pkAlumno <br />
+            Nombre: @item.sNombre<br />
+            Apellido: @item.sApellido <br />
+            Grupo: @item.sGrupo<br />
+            
+        </div>
+    }
+</div>
