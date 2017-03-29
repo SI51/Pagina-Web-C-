@@ -37,8 +37,49 @@ namespace escuela_MVC.ViewModel
             {
                 throw;
             }
+        }      
+
+        public static void Actualizar(AlumnosViewModel Datos)
+        {
+            Alumno tAlumno = DatosAlumnos(Datos.txtID);
+            tAlumno.sNombre = Datos.txtNombre;
+            tAlumno.sApellido = Datos.txtApellido;
+            tAlumno.sGrupo = Datos.txtGrupo;
+
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    ctx.Entry(tAlumno).State = EntityState.Modified;
+                    ctx.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
         }
 
-       
+        public static void borrar(int ID)
+        {
+            Alumno tAlumno = DatosAlumnos(ID);
+            tAlumno.bStatus = false;
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    ctx.Entry(tAlumno).State = EntityState.Modified;
+                    ctx.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
+
     }
 }

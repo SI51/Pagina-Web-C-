@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "borrar";
+    escuela_MVC.Models.Alumno Dato = ViewBag.Dato;
+}
+
+
+<div class="container">
+     <h3>Datos a borrar</h3>
+    <div class="alert alert-success col-xs-12" role="alert">
+        <ul>
+            <li>Nombre: <strong>@Dato.sNombre</strong></li>
+            <li>Apellido: <strong>@Dato.sApellido</strong></li>
+            <li>Grupo: <strong></strong>@Dato.sGrupo</li>
+        </ul>
+
+    </div>
+    @using (Html.BeginForm("borrar2", "Home", FormMethod.Post))
+    {
+        <input type="hidden" value="@Dato.pkAlumno" name="txtID" />
+        <div class="row">
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <input type="submit" value="Borrar" class="btn btn-danger" />
+                     <a href="~/Home"  class="btn btn-default">Regresar</a>
+                </div>
+            </div>
+        </div>
+    }
+    
+</div>
+

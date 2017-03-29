@@ -42,5 +42,29 @@ namespace escuela_MVC.Controllers
             ViewBag.Datos = alumno;
             return View();
         }
+
+       /* public ActionResult Actualizar(int id, String txtNombre, String txtApellido, String txtGrupo)
+        {
+            int x = 1;
+            return View();
+        }*/
+
+        public ActionResult Actualizar(AlumnosViewModel Datos)
+        {
+            AlumnoViewModel.Actualizar(Datos);
+            return View();
+        }
+
+        public ActionResult borrar(int id)
+        {
+            ViewBag.Dato = AlumnoViewModel.DatosAlumnos(id);
+            return View();
+        }
+
+        public ActionResult borrar2(int txtID)
+        {
+            AlumnoViewModel.borrar(txtID);
+            return View();
+        }
     }
 }
