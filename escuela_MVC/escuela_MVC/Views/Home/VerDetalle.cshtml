@@ -1,22 +1,20 @@
 ﻿
 @{
-    escuela_MVC.Models.Alumno GetDatos = ViewBag.GetDatos;
-    ViewBag.Title = "VerDetalle";
-    int id = ViewBag.id;
+    escuela_MVC.Models.Alumno datos = ViewBag.datos;
+    ViewBag.Title = "VerDetalle";  
 }
 
 <div class="container">
 
-    @foreach (escuela_MVC.Models.Alumno item in GetDatos)
-    {
+    
         <div>
-            <img src="@item.sImage" width="200px" height="250xp" /><br />
+            <img src="@datos.sImage" width="200px" height="250xp" /><br />
      
-            Matricula: @item.pkAlumno <br />
-            Nombre: @item.sNombre<br />
-            Apellido: @item.sApellido <br />
-            Grupo: @item.sGrupo<br />
+            Matricula: @datos.pkAlumno <br />
+            Nombre: @datos.sNombre<br />
+            Apellido: @datos.sApellido <br />
+            Grupo: @datos.sGrupo<br />
             
         </div>
-    }
+    
 </div>

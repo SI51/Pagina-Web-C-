@@ -20,10 +20,11 @@ namespace escuela_MVC.Controllers
             ViewBag.Title = "";
             return View();
         }
-        public ActionResult VerDetalle(int id)
+
+        public ActionResult VerDetalle(int ID)
         {
-            Alumno GetDatos = AlumnoViewModel.DatosAlumnos(id);
-            ViewBag.GetDatos = GetDatos;
+            Alumno datos = AlumnoViewModel.DatosAlumnos(ID);
+            ViewBag.datos = datos;
             ViewBag.Title = "";
             return View();
         }

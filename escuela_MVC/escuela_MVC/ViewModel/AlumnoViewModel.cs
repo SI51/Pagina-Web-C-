@@ -24,20 +24,20 @@ namespace escuela_MVC.ViewModel
             }
         }
 
-        public static Alumno DatosAlumnos(int id)
+        public static Alumno DatosAlumnos(int ID)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Alumnos.Where(r => r.bStatus==true && r.pkAlumno==id).FirstOrDefault();
+                    return ctx.Alumnos.Where(r => r.bStatus == true && r.pkAlumno == ID).FirstOrDefault();
                 }
             }
             catch (Exception)
             {
                 throw;
             }
-        }      
+        }
 
         public static void Actualizar(AlumnosViewModel Datos)
         {
@@ -45,7 +45,6 @@ namespace escuela_MVC.ViewModel
             tAlumno.sNombre = Datos.txtNombre;
             tAlumno.sApellido = Datos.txtApellido;
             tAlumno.sGrupo = Datos.txtGrupo;
-
             try
             {
                 using (var ctx = new DataModel())
@@ -54,10 +53,10 @@ namespace escuela_MVC.ViewModel
                     ctx.SaveChanges();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw new Exception(ex.Message);
+                throw;
             }
         }
 
