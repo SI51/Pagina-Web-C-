@@ -2,20 +2,37 @@
 @{
     ViewBag.Title = "Catalogo de alumnos";
     List<escuela_MVC.Models.Alumno> Datos = ViewBag.Datos;
+    String txtValor = ViewBag.txtValor;
 }
 
 <div class="container">
+    <div class="row">
+        @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+        {
+            <div class="form-group">
+                <label class="control-label col-xs-3">Apellido: </label>
+                <div class="col-xs-8">
+                    <input type="text" name="txtValor" value="@txtValor"  class="form-control" placeholder="Filtrar por apellido" />
+                </div>
+                <div class="col-xs-1">
+                    <input type="submit" value="Buscar" class="btn btn-primary" />
+                </div>
+            </div>
+        }
+    </div>
     <div class="panel-default">
-        <div class="panel-heading">Catalogo de alumnos </div> 
+        <div class="panel-heading">
+        <a href="~/Home/frmNuevo" class="btn btn-default pull-right">Nuevo</a>
+        Catalogo de alumnos </div> 
             <div class="panel-body">
                 <table class="table table-condensed col-xs-12 " >
                     <thead>
                         <tr>
-                            <td class="col-xs-2 text-center">Matricula</td>
-                            <td class="col-xs-2 text-center">Nombre</td>
-                            <td class="col-xs-4 text-center">Apellido</td>
-                            <td class="col-xs-2 text-center">Grupo</td>
-                            <td class="col-xs-5">Imagen</td>
+                            <td class="col-xs-2 ">Matricula</td>
+                            <td class="col-xs-2 ">Nombre</td>
+                            <td class="col-xs-4 ">Apellido</td>
+                            <td class="col-xs-2 ">Grupo</td>
+                            <td class="col-xs-1"></td>
                             <td class="col-xs-1"></td>
                         </tr>
                     </thead>
@@ -25,8 +42,7 @@
                             <td>@item.pkAlumno</td>
                             <td>@item.sNombre</td>
                             <td>@item.sApellido</td>
-                            <td>@item.sGrupo</td>
-                            <td><img src="@item.sImage" width="60xp"/></td>
+                            <td>@item.sGrupo</td>                        
                             <td>
                                 <a href="~/Home/VerDetalle/@item.pkAlumno">
                                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>

@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "frmNuevo";
+}
+
+<h2>Ficha de registro</h2>
+<div class="container">
+    @using (Html.BeginForm("Guardar", "Home", FormMethod.Post))
+    {
+        <input type="hidden" name="txtID"  />
+        <div class="form-group">
+            <label class="control-label col-xs-3">Nombre: </label>
+            <div class="col-xs-9">
+                <input type="text" name="txtNombre"  class="form-control" placeholder="" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3">Apellido: </label>
+            <div class="col-xs-9">
+                <input type="text" name="txtApellido"  class="form-control" placeholder="" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3">Grupo: </label>
+            <div class="col-xs-9">
+                <input type="text" name="txtGrupo"  class="form-control" placeholder="" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-12">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+                <input type="reset" value="Limpiar" class="btn btn-default" />
+            </div>
+        </div>
+
+    }
+</div>

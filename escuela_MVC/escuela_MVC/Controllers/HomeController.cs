@@ -13,11 +13,12 @@ namespace escuela_MVC.Controllers
     public class HomeController : Controller
     {
         // GET: Home
-        public ActionResult Index()
+        public ActionResult Index(String txtValor = "")
         {
-            List<Alumno> Datos = AlumnoViewModel.ListarContenido();
+            List<Alumno> Datos = AlumnoViewModel.ListarContenido(txtValor);
             ViewBag.Datos = Datos;
             ViewBag.Title = "";
+            ViewBag.txtValor = txtValor;
             return View();
         }
 
@@ -37,18 +38,18 @@ namespace escuela_MVC.Controllers
             return File(temMapBytes, "image/jpeg");
         }
 
-        public ActionResult frmActualizacion(int id)
+        public ActionResult frmActualizacion(int ID)
         {
-            Alumno alumno = AlumnoViewModel.DatosAlumnos(id);
+            Alumno alumno = AlumnoViewModel.DatosAlumnos(ID);
             ViewBag.Datos = alumno;
             return View();
         }
 
-       /* public ActionResult Actualizar(int id, String txtNombre, String txtApellido, String txtGrupo)
-        {
-            int x = 1;
-            return View();
-        }*/
+        /* public ActionResult Actualizar(int id, String txtNombre, String txtApellido, String txtGrupo)
+         {
+             int x = 1;
+             return View();
+         }*/
 
         public ActionResult Actualizar(AlumnosViewModel Datos)
         {
@@ -65,6 +66,17 @@ namespace escuela_MVC.Controllers
         public ActionResult borrar2(int txtID)
         {
             AlumnoViewModel.borrar(txtID);
+            return View();
+        }
+
+        public ActionResult frmNuevo()
+        {
+            return View();
+        }
+
+        public ActionResult Guardar(AlumnosViewModel Dato)
+        {
+            AlumnoViewModel.Guardar(Dato);
             return View();
         }
     }

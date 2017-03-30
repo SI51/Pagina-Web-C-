@@ -25,9 +25,7 @@ namespace escuela_MVC.Models
         [Required(ErrorMessage = "Grupo")]
         [StringLength(50)]
         public String sGrupo { get; set; }
-
-        [Required(ErrorMessage = "imagen")]
-        [StringLength(50)]
+        
         public String sImage { get; set; }
 
         public Boolean bStatus { get; set; }

@@ -153,6 +153,8 @@
     <Content Include="Views\Home\Actualizar.cshtml" />
     <Content Include="Views\Home\borrar.cshtml" />
     <Content Include="Views\Home\borrar2.cshtml" />
+    <Content Include="Views\Home\frmNuevo.cshtml" />
+    <Content Include="Views\Home\Guardar.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
@@ -181,6 +183,10 @@
     <Compile Include="Migrations\201703231522243_inicial.cs" />
     <Compile Include="Migrations\201703231522243_inicial.Designer.cs">
       <DependentUpon>201703231522243_inicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703301603201_CambioImage.cs" />
+    <Compile Include="Migrations\201703301603201_CambioImage.Designer.cs">
+      <DependentUpon>201703301603201_CambioImage.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Alumno.cs" />
@@ -216,6 +222,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201703231522243_inicial.resx">
       <DependentUpon>201703231522243_inicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703301603201_CambioImage.resx">
+      <DependentUpon>201703301603201_CambioImage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -4,18 +4,18 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using escuela_MVC.Models;
-
+using System.Data.Entity.Validation;
 namespace escuela_MVC.ViewModel
 {
     public class AlumnoViewModel
     {
-        public static List<Alumno> ListarContenido()
+        public static List<Alumno> ListarContenido(String valor="")
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Alumnos.Where(r => r.bStatus == true).ToList();
+                    return ctx.Alumnos.Where(r => r.bStatus == true && r.sApellido.Contains(valor)).ToList();
                 }
             }
             catch (Exception)
@@ -53,10 +53,12 @@ namespace escuela_MVC.ViewModel
                     ctx.SaveChanges();
                 }
             }
-            catch (Exception)
-            {
-
-                throw;
+            catch (DbEntityValidationException e)
+            {       
+                foreach(var ev in e.EntityValidationErrors)
+                {
+                    int x = 0;
+                }     
             }
         }
 
@@ -78,7 +80,29 @@ namespace escuela_MVC.ViewModel
                 throw new Exception(ex.Message);
             }
         }
+        
+        public static void Guardar(AlumnosViewModel Dato)
+        {
+            Alumno talumno = new Alumno();
 
+            talumno.sNombre = Dato.txtNombre;
+            talumno.sApellido = Dato.txtApellido;
+            talumno.sGrupo = Dato.txtGrupo;
+
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    ctx.Entry(talumno).State = EntityState.Added;
+                    ctx.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
     }
 }

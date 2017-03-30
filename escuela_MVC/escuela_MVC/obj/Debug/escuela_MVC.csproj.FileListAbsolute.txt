@@ -148,3 +148,4 @@ C:\Users\Luis-PC\Documents\GitHub\Pagina-Web-C-\escuela_MVC\escuela_MVC\obj\Debu
 C:\Users\Luis-PC\Documents\GitHub\Pagina-Web-C-\escuela_MVC\escuela_MVC\obj\Debug\escuela_MVC.csproj.GenerateResource.Cache
 C:\Users\Luis-PC\Documents\GitHub\Pagina-Web-C-\escuela_MVC\escuela_MVC\obj\Debug\escuela_MVC.dll
 C:\Users\Luis-PC\Documents\GitHub\Pagina-Web-C-\escuela_MVC\escuela_MVC\obj\Debug\escuela_MVC.pdb
+C:\Users\Luis-PC\Documents\GitHub\Pagina-Web-C-\escuela_MVC\escuela_MVC\obj\Debug\escuela_MVC.Migrations.CambioImage.resources
